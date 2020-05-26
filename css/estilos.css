@@ -1,0 +1,15 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: #dbd9d9;
+}
+
+.main-contenido{
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+}
+
+.main-contenido-error{
+    font-size: 3rem;
+    background: rgb(226, 52, 52);
+}

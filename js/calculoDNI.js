@@ -1,4 +1,9 @@
 /*
+    Autor: Fran Jimenez
+    email: fjimenezjob@gmail.com
+    Version: 2.0
+
+
     CALCULO DE LA LETRA DEL DNI CON JAVASCRPT.
     --------------------------------------------
 
@@ -34,30 +39,48 @@ var letrasDNI = [
   "E",
 ];
 
-var num_DNI = prompt('Introduce el numero de tu DNI: ( 00000000 )');
-
+const BOTON = document.getElementById("boton");
+const INPUT_DNI = document.getElementById("dni");
+const ARTICLE = document.getElementById("main-contenido_comprovacion");
 
 function verificar(dni) {
   var valido = false;
   var comprovacion = dni.toString().length;
 
-  if (comprovacion < 8 | comprovacion > 8) {
-    document.write(
-      "<h4 class=\"main-contenido-error\">Numero de dni no válido, por favor vuelva a introducir su DNI</h4>"
-    );
-  } else if (comprovacion === 8) {
+  if (comprovacion === 9) {
     valido = true;
+  } else if ((comprovacion > 9) | (comprovacion < 9)) {
+    valido = false;
   }
 
   return valido;
 }
 
 function calcular(dni) {
+  var dniOk = false;
   if (verificar(dni)) {
-    var calculo = dni % 23;
+    var dniCortado = Number(dni.slice(0, 8));
+    var calculo = dniCortado % 23;
     var letraCorrecta = letrasDNI[calculo];
-    document.write(`<h4 class=\"main-contenido-ok\">Tu DNI es: ${dni}-<strong>${letraCorrecta}</strong></h4>`);
+    var dniCorrecto = dniCortado + letraCorrecta;
+    if (dniCorrecto === dni) {
+      dniOk = true;
+    }
+    return dniOk;
   }
 }
 
-calcular(num_DNI);
+BOTON.addEventListener("click", function () {
+  var dni = INPUT_DNI.value;
+
+  if (calcular(dni)) {
+    var correcto = document.createElement("article");
+    correcto.innerHTML = `DNI: ${dni} es <strong>CORRECTO</strong>`;
+    ARTICLE.appendChild(correcto);
+
+  } else {
+    var incorrecto = document.createElement("article");
+    incorrecto.innerHTML = `DNI: ${dni} es <strong>INCORRECTO</strong>`;
+    ARTICLE.appendChild(incorrecto);
+  }
+});

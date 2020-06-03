@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
     <!-- HTML Meta Tags -->
-    <title>Plantilla</title>
+    <title>Comprobador DNI</title>
     <meta name="description" content="" />
 
     <!-- Google / Search Engine Tags -->
@@ -23,7 +23,7 @@
     <meta property="og:image" content="http://" />
 
     <!-- Twitter Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" /> 
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="SEAT" />
     <meta name="twitter:description" content="" />
     <meta name="twitter:image" content="http://" />
@@ -37,37 +37,41 @@
     />
 
     <!-- Nuestro Framework de CSS preferido, mi preferido es BULMA -->
-    <link rel="stylesheet" href="node_modules/bulma/css/bulma.min.css" />    
-    
+    <link rel="stylesheet" href="node_modules/bulma/css/bulma.min.css" />
+
     <!-- Nuestro CSS Compilado a través de SASS ó sin compilar solo CSS básico -->
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/estilos.css" />
-    
   </head>
   <body>
     <header>
-      
+      <section class="header-article">
+        <p class="header-article_title">
+          Comprobador de DNI
+        </p>
+      </section>
     </header>
-
+    
     <main>
-      <!--
-        *
-        * Bloque MAIN
-        *
-      -->
-          <section class="main-contenido">
-            <article class="main-contenido-article">
-              <script src="js/calculoDNI.js"></script>
-            </article>
-          </section>
+      <section id="main-contenido_izquierda">
+        <article class="main-contenido-article">
+          <input type="text" id="dni">
+          <button id="boton">
+            Comprobar
+          </button>
+        </article>
+      </section>
+      <section id="main-contenido_derecha">
+        <article id="main-contenido_comprovacion">
+          <script src="js/calculoDNI.js"></script>
+        </article>
+      </section>
     </main>
-
+    
     <footer>
-      <!--
-        *
-        * Bloque FOOTER
-        *
-        -->
+      <p id="footer-info">
+        Comprobador de DNI. V1.0. Copyright: Fran Jiménez
+      </p>
     </footer>
   </body>
 </html>

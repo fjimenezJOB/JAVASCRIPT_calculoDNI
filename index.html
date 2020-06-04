@@ -45,26 +45,22 @@
   </head>
   <body>
     <header>
-      <section class="header-article">
-        <p class="header-article_title">
+        <h1 id="titulo">
           Comprobador de DNI
-        </p>
-      </section>
+        </h1>
     </header>
     
     <main>
       <section id="main-contenido_izquierda">
-        <article class="main-contenido-article">
-          <input type="text" id="dni">
+        <label for="dni">DNI:
+          <input type="text" id="dni" required autofocus maxlength="9" placeholder="00000000X">
+        </label>
           <button id="boton">
             Comprobar
           </button>
-        </article>
       </section>
       <section id="main-contenido_derecha">
-        <article id="main-contenido_comprovacion">
           <script src="js/calculoDNI.js"></script>
-        </article>
       </section>
     </main>
     
